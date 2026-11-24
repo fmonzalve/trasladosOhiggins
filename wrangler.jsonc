@@ -1,0 +1,26 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "portal-traslados",
+  "main": "cloudflare/worker.mjs",
+  "compatibility_date": "2026-01-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "build": { "command": "node build.mjs" },
+  "routes": [
+    { "pattern": "traslados.ejemplo.cl", "custom_domain": true }
+  ],
+  "vars": {
+    "ACCESS_TEAM_URL": "https://equipo.cloudflareaccess.com",
+    "ACCESS_AUD": "REEMPLAZAR_CON_AUD",
+    "PROFILE_ADMIN_EMAIL": "administrador@ejemplo.cl",
+    "PROFILE_ADMIN_TRAVEL_ROLE": "coordinacion"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "portal-traslados",
+      "database_id": "REEMPLAZAR_CON_ID_D1",
+      "migrations_dir": "drizzle"
+    }
+  ]
+}
